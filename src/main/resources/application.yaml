@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/antra?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT"
+    username: "root"
+    password: "root1234"
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: myGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      #value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringSerializer
+      #value-deserializer: org.apache.kafka.common.serialization.StringSerializer
+      value-deserializer: org.apache.kafka.support.serializer.JsonSerializer
+
+
+
+server:
+  port: 8080
+
+logging:
+  file:
+    name: log/log.log
+  level:
+    root: info
+    com.study: debug
