@@ -32,6 +32,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>devops-integration</finalName>
     </build>
     <dependencies>
         <dependency>
